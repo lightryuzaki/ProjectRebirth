@@ -92,6 +92,7 @@ public class MapleDataTool {
         }
     }
 
+    /*
     public static int getIntConvert(String path, MapleData data) {
         MapleData d = data.getChildByPath(path);
         if (d.getType() == MapleDataType.STRING) {
@@ -100,8 +101,19 @@ public class MapleDataTool {
             return getInt(d);
         }
     }
+    */public static int getIntConvert(String path, MapleData data) {
+        MapleData d = data.getChildByPath(path);
+        if (d == null) {
+            return 0;
+        }
+        if (d.getType() == MapleDataType.STRING) {
+            return Integer.parseInt(getString(d));
+        } else {
+            return getInt(d);
+        }
+    }
 
-    public static int getInt(MapleData data, int def) {
+    /*public static int getInt(MapleData data, int def) {
         if (data == null || data.getData() == null) {
             return  def;
         } else if (data.getType() == MapleDataType.STRING) {
@@ -114,8 +126,16 @@ public class MapleDataTool {
                 return (Short) numData;
             }
         }
+    }*/
+public static int getInt(MapleData data, int def) {
+        if (data == null || data.getData() == null) {
+            return def;
+        } else if (data.getType() == MapleDataType.STRING) {
+            return Integer.parseInt(getString(data));
+        } else {
+            return ((Integer) data.getData()).intValue();
+        }
     }
-
     public static int getInt(String path, MapleData data, int def) {
         return getInt(data.getChildByPath(path), def);
     }

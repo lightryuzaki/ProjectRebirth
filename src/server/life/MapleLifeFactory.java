@@ -220,9 +220,10 @@ public class MapleLifeFactory {
                 animationTime += MapleDataTool.getIntConvert("delay", effectEntry, 0);
             }
 
-            int mpCon = MapleDataTool.getIntConvert("info/conMP", monsterAttackData, 0);
-            int coolTime = MapleDataTool.getIntConvert("info/attackAfter", monsterAttackData, 0);
-            attackInfos.add(new MobAttackInfoHolder(i, mpCon, coolTime, animationTime));
+            //int mpCon = MapleDataTool.getIntConvert("info/conMP", monsterAttackData, 0);
+            //int coolTime = MapleDataTool.getIntConvert("info/attackAfter", monsterAttackData, 0);
+            attackInfos.add(new MobAttackInfoHolder(i, 0, 1000, animationTime));
+            //attackInfos.add(new MobAttackInfoHolder(i, mpCon, coolTime, animationTime));
             i++;
         }
 

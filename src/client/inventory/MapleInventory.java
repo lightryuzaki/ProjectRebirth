@@ -672,4 +672,7 @@ public class MapleInventory implements Iterable<Item> {
     public void unlockInventory() {
         lock.unlock();
     }
+        public void dispose() {
+        owner = null;
+    }
 }
